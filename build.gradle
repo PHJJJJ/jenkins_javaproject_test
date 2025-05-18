@@ -24,7 +24,7 @@ sonarqube {
     properties {
         property "sonar.projectKey", "jenkins_test_project" // SonarQube에서 프로젝트를 유니크하게 식별하는 ID
         property "sonar.projectName", "젠킨스 테스트 프로젝트" // SonarQube에서 프로젝트를 유니크하게 식별하는 ID
-        property "sonar.host.url", "http://localhost:9000"
+        property "sonar.host.url", "http://sonarqube:9000" 
         //property "sonar.login", "sqa_932fa7635e16f80a7b814a7cbc657d6e14e3b48c"  // SonarQube에서 생성한 토큰. 젠킨스에서 전달해서 사용할 것이기에 주석 처리
         property "sonar.sources", "src/main"
         property "sonar.tests", "src/test"
