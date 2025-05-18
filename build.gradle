@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.4.5'
 	id 'io.spring.dependency-management' version '1.1.7'
+	id 'org.sonarqube' version '4.4.1.3373'
 }
 
 group = 'com.example'
@@ -17,6 +18,18 @@ configurations {
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "jenkins_test_project" // SonarQube에서 프로젝트를 유니크하게 식별하는 ID
+        property "sonar.projectName", "젠킨스 테스트 프로젝트" // SonarQube에서 프로젝트를 유니크하게 식별하는 ID
+        property "sonar.host.url", "http://localhost:9000"
+        //property "sonar.login", "sqa_932fa7635e16f80a7b814a7cbc657d6e14e3b48c"  // SonarQube에서 생성한 토큰. 젠킨스에서 전달해서 사용할 것이기에 주석 처리
+        property "sonar.sources", "src/main"
+        property "sonar.tests", "src/test"
+        property "sonar.java.binaries", "build/classes"
+    }
 }
 
 repositories {
