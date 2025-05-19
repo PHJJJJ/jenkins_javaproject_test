@@ -2,6 +2,7 @@ pipeline {
     agent {
         docker {
             image 'gradle:jdk17'
+            label 'docker-agent'  // 슬레이브 라벨 지정
             args '--network=host -e GRADLE_USER_HOME=/home/gradle/.gradle'
         }
     }
